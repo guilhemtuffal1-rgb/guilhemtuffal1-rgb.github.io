@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — GeoMaster Europe Edition</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; background: #0f1117; color: #e8eaf0; line-height: 1.7; }
+    a { text-decoration: none; color: inherit; }
+    .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 2rem; background: rgba(15,17,23,0.9); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .topbar-logo { font-size: 1.2rem; font-weight: 900; background: linear-gradient(135deg, #4ecdc4, #44a8e0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .back-link { font-size: 0.8rem; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.2s; }
+    .back-link:hover { color: white; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.06); }
+    .hero { padding: 8rem 2rem 4rem; background: linear-gradient(155deg, #0a0e1f 0%, #0d1535 50%, #0a0e1f 100%); text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(100,181,246,.12) 0%, transparent 65%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+    .edition-badge { display: inline-block; background: rgba(100,181,246,.15); border: 1px solid rgba(100,181,246,.35); color: #64B5F6; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.2rem; position: relative; z-index: 2; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; position: relative; z-index: 2; margin-bottom: 0.4rem; }
+    .hero h1 span { background: linear-gradient(135deg, #fff 0%, #bbdefb 50%, #64B5F6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { color: rgba(255,255,255,0.45); font-size: 0.88rem; position: relative; z-index: 2; }
+    .container { max-width: 820px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .section-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 18px; padding: 2rem 2.2rem; margin-bottom: 1.2rem; transition: border-color 0.2s; }
+    .section-card:hover { border-color: rgba(100,181,246,.25); }
+    .section-header { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.1rem; }
+    .section-icon { font-size: 1.5rem; width: 42px; height: 42px; border-radius: 12px; background: rgba(100,181,246,.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .section-title { font-size: 1rem; font-weight: 700; color: white; }
+    .section-num { font-size: 0.7rem; color: #64B5F6; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 0.1rem; }
+    p { color: rgba(255,255,255,.65); font-size: 0.93rem; margin-bottom: 0.75rem; }
+    p:last-child { margin-bottom: 0; }
+    ul { list-style: none; padding: 0; margin: 0.5rem 0 0.75rem; }
+    ul li { color: rgba(255,255,255,.65); font-size: 0.93rem; padding: 0.25rem 0 0.25rem 1.3rem; position: relative; }
+    ul li::before { content: '›'; position: absolute; left: 0; color: #64B5F6; font-weight: 700; }
+    a.ext-link { color: #64B5F6; border-bottom: 1px solid rgba(100,181,246,.3); transition: border-color 0.2s; }
+    a.ext-link:hover { border-color: #64B5F6; }
+    .highlight-box { background: rgba(100,181,246,.08); border: 1px solid rgba(100,181,246,.2); border-radius: 12px; padding: 1rem 1.25rem; margin-top: 0.75rem; }
+    .highlight-box p { color: rgba(255,255,255,.7); margin: 0; }
+    .contact-card { background: linear-gradient(135deg, rgba(21,101,192,.2), rgba(13,71,161,.15)); border: 1px solid rgba(100,181,246,.25); border-radius: 18px; padding: 2rem 2.2rem; text-align: center; margin-top: 2rem; }
+    .contact-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .contact-email { font-size: 1rem; color: #64B5F6; font-weight: 600; margin-top: 0.6rem; display: inline-block; }
+    footer { border-top: 1px solid rgba(255,255,255,.06); padding: 2rem; text-align: center; }
+    .footer-logo { font-size: 1.3rem; font-weight: 900; background: linear-gradient(135deg, #4ecdc4, #44a8e0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.3rem; }
+    .footer-copy { color: rgba(255,255,255,.18); font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-logo">GeoMaster</div>
+    <a href="../index.html" class="back-link">← Back to GeoMaster</a>
+  </div>
+  <div class="hero">
+    <div class="edition-badge">🇪🇺 Europe</div>
+    <h1><span>Privacy Policy</span></h1>
+    <h1 style="font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:400;color:rgba(255,255,255,.5);margin-top:.4rem;">GeoMaster — Europe Edition</h1>
+    <p class="hero-sub" style="margin-top:1rem;">Last updated: April 14, 2026</p>
+  </div>
+  <div class="container">
+    <div class="section-card">
+      <div class="section-header"><div class="section-icon">🔒</div><div><div class="section-num">Section 1</div><div class="section-title">Information We Collect</div></div></div>
+      <p>GeoMaster Europe Edition does not require you to create an account or provide any personal information to use the app.</p>
+      <p>We do not collect, store, or transmit any personally identifiable information such as your name, email address, or location.</p>
+      <div class="highlight-box"><p>✓ Your in-app data (scores, progress, and preferences) is stored exclusively on your device and is never transmitted to our servers.</p></div>
+    </div>
+    <div class="section-card">
+      <div class="section-header"><div class="section-icon">📢</div><div><div class="section-num">Section 2</div><div class="section-title">Advertising (Google AdMob)</div></div></div>
+      <p>GeoMaster Europe Edition uses <strong style="color:white;">Google AdMob</strong> to display advertisements. AdMob may collect and process certain data to serve personalised or non-personalised ads, including:</p>
+      <ul><li>Device identifiers (e.g. Advertising ID)</li><li>IP address</li><li>Interaction data with ads (clicks, impressions)</li><li>General location information (country / region level)</li></ul>
+      <p>This data is collected and processed by Google LLC: <a href="https://policies.google.com/privacy" class="ext-link" target="_blank">policies.google.com/privacy</a></p>
+      <p><strong style="color:rgba(255,255,255,.8);">Android:</strong> Settings › Google › Ads › Opt out of Ads Personalisation</p>
+      <div class="highlight-box"><p>For users in the EEA and the UK, AdMob will request your consent before showing personalised ads, in compliance with GDPR and UK GDPR.</p></div>
+    </div>
+    <div class="section-card">
+      <div class="section-header"><div class="section-icon">📱</div><div><div class="section-num">Section 3</div><div class="section-title">Data Stored on Your Device</div></div></div>
+      <p>The app may save the following data locally on your device:</p>
+      <ul><li>Quiz scores and high scores</li><li>Game progress and unlocked content</li><li>App preferences and settings (e.g. language, sound)</li></ul>
+      <p>This data never leaves your device and can be deleted at any time by uninstalling the app.</p>
+    </div>
+    <div class="section-card">
+      <div class="section-header"><div class="section-icon">👶</div><div><div class="section-num">Section 4</div><div class="section-title">Children's Privacy</div></div></div>
+      <p>GeoMaster Europe Edition is a general-audience app suitable for all ages. We do not knowingly collect personal information from children under the age of 13.</p>
+      <p>If you are a parent or guardian and believe your child has provided personal information, please contact us so we can take appropriate action.</p>
+    </div>
+    <div class="section-card">
+      <div class="section-header"><div class="section-icon">🔗</div><div><div class="section-num">Section 5</div><div class="section-title">Third-Party Services</div></div></div>
+      <p>The only third-party service integrated into GeoMaster Europe Edition is Google AdMob. We do not share any data with other third parties.</p>
+      <ul><li><a href="https://policies.google.com/privacy" class="ext-link" target="_blank">Google AdMob Privacy Policy</a></li><li><a href="https://developers.google.com/admob/terms" class="ext-link" target="_blank">Google AdMob Terms of Service</a></li></ul>
+    </div>
+    <div class="section-card">
+      <div class="section-header"><div class="section-icon">🇪🇺</div><div><div class="section-num">Section 6</div><div class="section-title">Your Rights (GDPR / EEA & UK)</div></div></div>
+      <p>If you are located in the EEA or the UK, you have the right to:</p>
+      <ul><li>Know what data is collected about you (by AdMob)</li><li>Request deletion of your data</li><li>Withdraw consent for personalised advertising at any time</li></ul>
+      <p>To exercise your rights regarding data collected by Google AdMob, please refer to Google's Privacy & Terms pages listed in Section 5.</p>
+    </div>
+    <div class="section-card">
+      <div class="section-header"><div class="section-icon">🔄</div><div><div class="section-num">Section 7</div><div class="section-title">Changes to This Policy</div></div></div>
+      <p>We may update this Privacy Policy from time to time. Any changes will be reflected by updating the "Last updated" date at the top of this document.</p>
+    </div>
+    <div class="contact-card">
+      <h3>Questions or Concerns?</h3>
+      <p style="color:rgba(255,255,255,.5);font-size:.9rem;">Feel free to reach out to us at any time.</p>
+      <a href="mailto:guilhemtuffal1@gmail.com" class="contact-email">guilhemtuffal1@gmail.com</a>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-logo">GeoMaster</div>
+    <p class="footer-copy">© 2024–2026 GeoMaster — Guilhem Tuffal. All rights reserved.</p>
+  </footer>
+</body>
+</html>
