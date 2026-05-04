@@ -177,14 +177,15 @@
     .stat-num { font-size: 1.85rem; font-weight: 800; }
     .stat-lbl { font-size: .72rem; opacity: .5; text-transform: uppercase; letter-spacing: .08em; }
     .btn-dl {
-      display: inline-flex; align-items: center; gap: .5rem;
-      padding: .8rem 1.9rem; border-radius: 50px;
-      font-weight: 700; font-size: .92rem; color: white;
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      padding: .8rem 1.6rem; border-radius: 50px;
+      font-weight: 700; font-size: .88rem; color: white;
       transition: transform .2s, box-shadow .2s;
+      flex: 1 1 auto; min-width: 155px;
     }
     .btn-dl:hover { transform: translateY(-2px); }
-    .dl-btns { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
-    .btn-ios { background: #111; box-shadow: 0 5px 22px rgba(0,0,0,.5); }
+    .dl-btns { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .btn-ios { background: #1c1c1e; box-shadow: 0 5px 22px rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.15); }
 
     /* ── SCREENSHOT CAROUSEL ────────────────────── */
     .screenshots-wrapper { flex: 1; min-width: 0; }
@@ -263,6 +264,7 @@
       .editions-grid { grid-template-columns: 1fr; }
       .hero-phones { height: 220px; }
       .hero-phone { width: 95px; }
+      .btn-dl { flex: 1 1 100%; }
     }
   </style>
 </head>
@@ -276,19 +278,19 @@
 
   <!-- ── HERO ── -->
   <section class="hero" id="top">
-    <div class="hero-badge">&#127758; Geography Quiz App</div>
+    <div class="hero-badge" id="heroBadge">&#127758; Geography Quiz App</div>
     <h1>GeoMaster</h1>
-    <p class="hero-tagline">Master world geography through 7 unique regional editions</p>
-    <a href="#editions-overview" class="btn-primary">Discover all editions ↓</a>
+    <p class="hero-tagline" id="heroTagline">Master world geography through 7 unique regional editions</p>
+    <a href="#editions-overview" class="btn-primary" id="heroBtn">Discover all editions ↓</a>
     <div class="hero-phones" id="heroPhones"></div>
   </section>
 
   <!-- ── GAME MODES ── -->
   <section class="modes-bg">
     <div class="section-head">
-      <span class="section-super">How it works</span>
-      <h2 class="section-title">Game Modes</h2>
-      <p class="section-sub">Multiple ways to challenge your geography knowledge</p>
+      <span class="section-super" id="modesSuper">How it works</span>
+      <h2 class="section-title" id="modesTitle">Game Modes</h2>
+      <p class="section-sub" id="modesSub">Multiple ways to challenge your geography knowledge</p>
     </div>
     <div class="modes-grid" id="modesGrid"></div>
   </section>
@@ -296,9 +298,9 @@
   <!-- ── EDITIONS OVERVIEW ── -->
   <section class="editions-overview" id="editions-overview">
     <div class="section-head">
-      <span class="section-super">The Collection</span>
-      <h2 class="section-title">Choose Your Edition</h2>
-      <p class="section-sub">Each edition focuses on a specific region of the world</p>
+      <span class="section-super" id="editionsSuper">The Collection</span>
+      <h2 class="section-title" id="editionsTitle">Choose Your Edition</h2>
+      <p class="section-sub" id="editionsSub">Each edition focuses on a specific region of the world</p>
     </div>
     <div class="editions-grid" id="editionsGrid"></div>
   </section>
@@ -309,24 +311,46 @@
   <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-logo">GeoMaster</div>
-    <p class="footer-tagline">Test your geography knowledge &middot; Available on Android</p>
+    <p class="footer-tagline" id="footerTagline">Test your geography knowledge &middot; Available on Android &amp; iOS</p>
     <div class="footer-pills" id="footerPills"></div>
-    <p class="footer-copy">&copy; 2024&ndash;2026 GeoMaster. All rights reserved.</p>
+    <p class="footer-copy" id="footerCopy">&copy; 2024&ndash;2026 GeoMaster. All rights reserved.</p>
   </footer>
 
   <script>
-    // ── DATA ─────────────────────────────────────────────────────────────
-    const MODES = [
-      { icon: '&#127758;', name: 'Most Populated', desc: 'Which country has the largest population?' },
-      { icon: '&#128506;', name: 'Largest',         desc: 'Which country covers the most territory?' },
-      { icon: '&#127987;', name: 'Flags',           desc: 'Identify the flag of a given country' },
-      { icon: '&#127963;', name: 'Capitals',        desc: 'Match each capital to its country' },
-      { icon: '&#127919;', name: 'Blind Rank',      desc: 'Rank countries without any visual hint' },
-      { icon: '&#127970;', name: 'Organisations',   desc: 'Learn about regional organisations' },
-      { icon: '&#9889;',   name: 'Speed Round',     desc: 'Answer as many as you can in time' },
-      { icon: '&#128218;', name: 'Learning',        desc: 'Explore facts at your own pace' },
-    ];
+    // ── LANGUAGE STRINGS ─────────────────────────────────────────────────
+    // To add a translation: duplicate this object, change the values,
+    // then assign: Object.assign(LANG, LANG_FR);
+    const LANG = {
+      pageTitle:     'GeoMaster — Geography Quiz App',
+      heroBadge:     '&#127758; Geography Quiz App',
+      heroTagline:   'Master world geography through 7 unique regional editions',
+      heroBtn:       'Discover all editions ↓',
+      modesSuper:    'How it works',
+      modesTitle:    'Game Modes',
+      modesSub:      'Multiple ways to challenge your geography knowledge',
+      editionsSuper: 'The Collection',
+      editionsTitle: 'Choose Your Edition',
+      editionsSub:   'Each edition focuses on a specific region of the world',
+      statFree:      'Free',
+      statFreeLabel: 'to play',
+      btnAndroid:    'Download on Android',
+      btnIos:        'Download on iOS',
+      footerTagline: 'Test your geography knowledge &middot; Available on Android &amp; iOS',
+      footerCopy:    '&copy; 2024&ndash;2026 GeoMaster. All rights reserved.',
+      screenshotAlt: (subtitle, n) => `${subtitle} screenshot ${n}`,
+      modes: [
+        { icon: '&#127758;', name: 'Most Populated', desc: 'Which country has the largest population?' },
+        { icon: '&#128506;', name: 'Largest',        desc: 'Which country covers the most territory?' },
+        { icon: '&#127987;', name: 'Flags',          desc: 'Identify the flag of a given country' },
+        { icon: '&#127963;', name: 'Capitals',       desc: 'Match each capital to its country' },
+        { icon: '&#127919;', name: 'Blind Rank',     desc: 'Rank countries without any visual hint' },
+        { icon: '&#127970;', name: 'Organisations',  desc: 'Learn about regional organisations' },
+        { icon: '&#9889;',   name: 'Speed Round',    desc: 'Answer as many as you can in time' },
+        { icon: '&#128218;', name: 'Learning',       desc: 'Explore facts at your own pace' },
+      ],
+    };
 
+    // ── EDITIONS DATA ─────────────────────────────────────────────────────
     const EDITIONS = [
       {
         id: 'world', subtitle: 'World Edition', region: 'All Continents',
@@ -398,6 +422,20 @@
       return `Assets/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`;
     }
 
+    // ── APPLY LANG TO STATIC ELEMENTS ─────────────────────────────────────
+    document.title = LANG.pageTitle;
+    document.getElementById('heroBadge').innerHTML     = LANG.heroBadge;
+    document.getElementById('heroTagline').innerHTML   = LANG.heroTagline;
+    document.getElementById('heroBtn').innerHTML       = LANG.heroBtn;
+    document.getElementById('modesSuper').innerHTML    = LANG.modesSuper;
+    document.getElementById('modesTitle').innerHTML    = LANG.modesTitle;
+    document.getElementById('modesSub').innerHTML      = LANG.modesSub;
+    document.getElementById('editionsSuper').innerHTML = LANG.editionsSuper;
+    document.getElementById('editionsTitle').innerHTML = LANG.editionsTitle;
+    document.getElementById('editionsSub').innerHTML   = LANG.editionsSub;
+    document.getElementById('footerTagline').innerHTML = LANG.footerTagline;
+    document.getElementById('footerCopy').innerHTML    = LANG.footerCopy;
+
     // ── NAV ───────────────────────────────────────────────────────────────
     const navLinks = document.getElementById('navLinks');
     EDITIONS.forEach(e => {
@@ -418,7 +456,7 @@
 
     // ── GAME MODES ────────────────────────────────────────────────────────
     const modesGrid = document.getElementById('modesGrid');
-    MODES.forEach(m => {
+    LANG.modes.forEach(m => {
       modesGrid.innerHTML += `
         <div class="mode-card fade">
           <div class="mode-icon">${m.icon}</div>
@@ -455,7 +493,7 @@
       for (let j = 1; j <= e.screenshots; j++) {
         slides += `<div class="slide">
           <div class="phone-frame">
-            <img src="${img(e.folder, `tel1-${j}.png`)}" alt="${e.subtitle} screenshot ${j}" loading="lazy">
+            <img src="${img(e.folder, `tel1-${j}.png`)}" alt="${LANG.screenshotAlt(e.subtitle, j)}" loading="lazy">
           </div>
         </div>`;
       }
@@ -487,17 +525,17 @@
               <div class="edition-stats">
                 <div><div class="stat-num" style="color:${e.accent};">${e.stat1}</div><div class="stat-lbl">${e.statLabel1}</div></div>
                 <div><div class="stat-num" style="color:${e.accent};">${e.stat2}</div><div class="stat-lbl">${e.statLabel2}</div></div>
-                <div><div class="stat-num" style="color:${e.accent};">Free</div><div class="stat-lbl">to play</div></div>
+                <div><div class="stat-num" style="color:${e.accent};">${LANG.statFree}</div><div class="stat-lbl">${LANG.statFreeLabel}</div></div>
               </div>
               <div class="dl-btns">
                 <a href="https://play.google.com/store/apps/details?id=${e.androidId}" class="btn-dl" target="_blank" rel="noopener"
                   style="background:linear-gradient(135deg,${e.color1},${e.color2});box-shadow:0 5px 22px ${e.color1}55;">
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 3v13M8 12l4 4 4-4M3 18v1a2 2 0 002 2h14a2 2 0 002-2v-1"/></svg>
-                  Download on Android
+                  ${LANG.btnAndroid}
                 </a>
                 <a href="https://apps.apple.com/app/id${e.iosId}" class="btn-dl btn-ios" target="_blank" rel="noopener">
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                  Download on iOS
+                  ${LANG.btnIos}
                 </a>
               </div>
             </div>
@@ -532,9 +570,9 @@
       const track = document.getElementById(`track-${id}`);
       if (!track) return;
       const outer = track.closest('.track-outer');
-      if (!outer) return;
+      if (!outer || outer.clientWidth === 0) return;
       const vc = visibleCount();
-      const w = Math.floor((outer.clientWidth - 14 * (vc - 1)) / vc);
+      const w  = Math.floor((outer.clientWidth - 14 * (vc - 1)) / vc);
       track.querySelectorAll('.slide').forEach(s => { s.style.width = w + 'px'; });
     }
     function slideWidth(id) {
@@ -548,6 +586,7 @@
     function applyCarousel(id) {
       const track = document.getElementById(`track-${id}`);
       if (!track) return;
+      state[id].idx = Math.min(state[id].idx, maxIdx(id));
       track.style.transform = `translateX(-${state[id].idx * slideWidth(id)}px)`;
       document.querySelectorAll(`#dots-${id} .dot`).forEach((d,i) => {
         d.classList.toggle('active', i === state[id].idx);
@@ -566,16 +605,15 @@
       }
     });
 
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        EDITIONS.forEach(e => {
-          state[e.id].idx = Math.min(state[e.id].idx, maxIdx(e.id));
-          setSlideWidths(e.id);
-          applyCarousel(e.id);
-        });
-      }, 120);
+    // ── INIT CAROUSELS via ResizeObserver ─────────────────────────────────
+    // Fires on initial layout AND on every resize — no separate resize handler needed.
+    EDITIONS.forEach(e => {
+      const outer = document.querySelector(`#track-${e.id}`)?.closest('.track-outer');
+      if (!outer) return;
+      new ResizeObserver(() => {
+        setSlideWidths(e.id);
+        applyCarousel(e.id);
+      }).observe(outer);
     });
 
     // ── SCROLL ANIMATIONS ─────────────────────────────────────────────────
@@ -583,9 +621,6 @@
       entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.fade').forEach(el => observer.observe(el));
-
-    // ── INIT CAROUSELS after layout ───────────────────────────────────────
-    requestAnimationFrame(() => EDITIONS.forEach(e => { setSlideWidths(e.id); applyCarousel(e.id); }));
   </script>
 </body>
 </html>
