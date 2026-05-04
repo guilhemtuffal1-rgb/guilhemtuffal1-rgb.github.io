@@ -510,13 +510,22 @@
     const state = {};
     EDITIONS.forEach(e => { state[e.id] = { idx: 0, total: e.screenshots }; });
 
-    function slideWidth(id) {
-      const track = document.getElementById(`track-${id}`);
-      const s = track.querySelector('.slide');
-      return s ? s.offsetWidth + 14 : 199; // gap 14px
-    }
     function visibleCount() {
       return window.innerWidth < 540 ? 1 : window.innerWidth < 860 ? 2 : 3;
+    }
+    function setSlideWidths(id) {
+      const track = document.getElementById(`track-${id}`);
+      if (!track) return;
+      const outer = track.closest('.track-outer');
+      if (!outer) return;
+      const vc = visibleCount();
+      const w = Math.floor((outer.clientWidth - 14 * (vc - 1)) / vc);
+      track.querySelectorAll('.slide').forEach(s => { s.style.width = w + 'px'; });
+    }
+    function slideWidth(id) {
+      const track = document.getElementById(`track-${id}`);
+      const s = track && track.querySelector('.slide');
+      return s ? s.offsetWidth + 14 : 199; // gap 14px
     }
     function maxIdx(id) {
       return Math.max(0, state[id].total - visibleCount());
@@ -548,6 +557,7 @@
       resizeTimer = setTimeout(() => {
         EDITIONS.forEach(e => {
           state[e.id].idx = Math.min(state[e.id].idx, maxIdx(e.id));
+          setSlideWidths(e.id);
           applyCarousel(e.id);
         });
       }, 120);
@@ -560,7 +570,7 @@
     document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
     // ── INIT CAROUSELS after layout ───────────────────────────────────────
-    requestAnimationFrame(() => EDITIONS.forEach(e => applyCarousel(e.id)));
+    requestAnimationFrame(() => EDITIONS.forEach(e => { setSlideWidths(e.id); applyCarousel(e.id); }));
   </script>
 </body>
 </html>
