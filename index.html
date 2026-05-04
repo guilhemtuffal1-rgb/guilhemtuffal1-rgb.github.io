@@ -183,6 +183,8 @@
       transition: transform .2s, box-shadow .2s;
     }
     .btn-dl:hover { transform: translateY(-2px); }
+    .dl-btns { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+    .btn-ios { background: #111; box-shadow: 0 5px 22px rgba(0,0,0,.5); }
 
     /* ── SCREENSHOT CAROUSEL ────────────────────── */
     .screenshots-wrapper { flex: 1; min-width: 0; }
@@ -332,6 +334,7 @@
         stat1: '195', statLabel1: 'Countries', stat2: '8', statLabel2: 'Game Modes',
         color1: '#00695C', color2: '#00796B', accent: '#4DB6AC',
         folder: 'Presentation-GeoMaster', hasGraphic: true, screenshots: 8,
+        androidId: 'com.guigui314.GeoMaster', iosId: '6764830622',
         games: ['Most Populated','Largest','Flags','Capitals','Blind Rank','Organisations','Speed Round','Learning'],
       },
       {
@@ -340,6 +343,7 @@
         stat1: '44', statLabel1: 'Countries', stat2: '8', statLabel2: 'Game Modes',
         color1: '#1565C0', color2: '#0D47A1', accent: '#64B5F6',
         folder: 'Presentation-GeoMaster_EU_Edition', hasGraphic: true, screenshots: 8,
+        androidId: 'com.guigui314.GeoMastereuEdition', iosId: '6764586510',
         games: ['Most Populated','Largest','Flags','Capitals','Blind Rank','Organisations','Speed Round','Learning'],
       },
       {
@@ -348,6 +352,7 @@
         stat1: '54', statLabel1: 'Countries', stat2: '8', statLabel2: 'Game Modes',
         color1: '#C62828', color2: '#BF360C', accent: '#EF9A9A',
         folder: 'Presentation-GeoMaster_AF_Edition', hasGraphic: true, screenshots: 8,
+        androidId: 'com.guigui314.GeoMasterafEdition', iosId: '6764829384',
         games: ['Most Populated','Largest','Flags','Capitals','Blind Rank','Organisations','Speed Round','Learning'],
       },
       {
@@ -356,6 +361,7 @@
         stat1: '35', statLabel1: 'Countries', stat2: '8', statLabel2: 'Game Modes',
         color1: '#2E7D32', color2: '#1B5E20', accent: '#A5D6A7',
         folder: 'Presentation-GeoMaster_AM_Edition', hasGraphic: true, screenshots: 8,
+        androidId: 'com.guigui314.GeoMasteramEdition', iosId: '6764829583',
         games: ['Most Populated','Largest','Flags','Capitals','Blind Rank','Organisations','Speed Round','Learning'],
       },
       {
@@ -364,6 +370,7 @@
         stat1: '48', statLabel1: 'Countries', stat2: '8', statLabel2: 'Game Modes',
         color1: '#6A1B9A', color2: '#E65100', accent: '#CE93D8',
         folder: 'Presentation-GeoMaster_AS_Edition', hasGraphic: true, screenshots: 8,
+        androidId: 'com.guigui314.GeoMasterasEdition', iosId: '6764829781',
         games: ['Most Populated','Largest','Flags','Capitals','Blind Rank','Organisations','Speed Round','Learning'],
       },
       {
@@ -372,6 +379,7 @@
         stat1: '14', statLabel1: 'Countries', stat2: '8', statLabel2: 'Game Modes',
         color1: '#0277BD', color2: '#006064', accent: '#4FC3F7',
         folder: 'Presentation-GeoMaster_PA_Edition', hasGraphic: true, screenshots: 8,
+        androidId: 'com.guigui314.GeoMasterpaEdition', iosId: '6764829855',
         games: ['Most Populated','Largest','Flags','Capitals','Blind Rank','Organisations','Speed Round','Learning'],
       },
       {
@@ -380,6 +388,7 @@
         stat1: '50', statLabel1: 'States', stat2: '6', statLabel2: 'Game Modes',
         color1: '#283593', color2: '#B71C1C', accent: '#90CAF9',
         folder: 'Presentation-GeoMaster_US_Edition', hasGraphic: true, screenshots: 8,
+        androidId: 'com.guigui314.GeoMasterUSEdition', iosId: '6766081243',
         games: ['Most Populated','Largest','Flags','Capitals','Blind Rank','Speed Round','Learning'],
       },
     ];
@@ -480,11 +489,17 @@
                 <div><div class="stat-num" style="color:${e.accent};">${e.stat2}</div><div class="stat-lbl">${e.statLabel2}</div></div>
                 <div><div class="stat-num" style="color:${e.accent};">Free</div><div class="stat-lbl">to play</div></div>
               </div>
-              <a href="#" class="btn-dl"
-                style="background:linear-gradient(135deg,${e.color1},${e.color2});box-shadow:0 5px 22px ${e.color1}55;">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 3v13M8 12l4 4 4-4M3 18v1a2 2 0 002 2h14a2 2 0 002-2v-1"/></svg>
-                Download on Android
-              </a>
+              <div class="dl-btns">
+                <a href="https://play.google.com/store/apps/details?id=${e.androidId}" class="btn-dl" target="_blank" rel="noopener"
+                  style="background:linear-gradient(135deg,${e.color1},${e.color2});box-shadow:0 5px 22px ${e.color1}55;">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 3v13M8 12l4 4 4-4M3 18v1a2 2 0 002 2h14a2 2 0 002-2v-1"/></svg>
+                  Download on Android
+                </a>
+                <a href="https://apps.apple.com/app/id${e.iosId}" class="btn-dl btn-ios" target="_blank" rel="noopener">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  Download on iOS
+                </a>
+              </div>
             </div>
 
             <div class="screenshots-wrapper fade">
