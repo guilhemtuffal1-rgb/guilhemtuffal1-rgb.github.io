@@ -283,6 +283,79 @@
       .hero-phone { width: 95px; }
       .btn-dl { flex: 1 1 100%; }
     }
+
+    /* ── FEEDBACK FAB & MODAL ────────────────────── */
+    .feedback-fab {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
+      background: linear-gradient(135deg, #4ecdc4, #44a8e0);
+      color: white; border: none; border-radius: 50px;
+      padding: .65rem 1.25rem; font-size: .83rem; font-weight: 700;
+      cursor: pointer; box-shadow: 0 4px 20px rgba(78,205,196,.4);
+      display: flex; align-items: center; gap: .45rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feedback-fab:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(78,205,196,.5); }
+
+    .fb-backdrop {
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(0,0,0,.72); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center; padding: 1rem;
+      opacity: 0; pointer-events: none; transition: opacity .25s;
+    }
+    .fb-backdrop.open { opacity: 1; pointer-events: all; }
+    .fb-modal {
+      background: #1a1d28; border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px; padding: 2rem; width: 100%; max-width: 460px;
+      transform: translateY(20px); transition: transform .25s;
+    }
+    .fb-backdrop.open .fb-modal { transform: translateY(0); }
+    .fb-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .fb-title { font-size: 1.15rem; font-weight: 800; }
+    .fb-close {
+      background: rgba(255,255,255,.08); border: none; color: white;
+      width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
+      font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+      transition: background .2s; line-height: 1;
+    }
+    .fb-close:hover { background: rgba(255,255,255,.16); }
+    .fb-limit-banner {
+      background: rgba(239,154,154,.1); border: 1px solid rgba(239,154,154,.25);
+      border-radius: 10px; padding: .65rem 1rem; font-size: .81rem; color: #ef9a9a;
+      text-align: center; margin-bottom: 1.1rem;
+    }
+    .fb-label { display: block; font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.55); margin-bottom: .4rem; }
+    .fb-type-row { display: flex; gap: .6rem; margin-bottom: 1.1rem; }
+    .fb-type-btn {
+      flex: 1; padding: .55rem; border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.55); font-size: .82rem; font-weight: 600;
+      cursor: pointer; transition: all .2s; text-align: center;
+    }
+    .fb-type-btn.active { border-color: #4ecdc4; color: #4ecdc4; background: rgba(78,205,196,.1); }
+    .fb-select, .fb-textarea {
+      width: 100%; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.11);
+      border-radius: 10px; color: white; font-size: .87rem; font-family: inherit;
+      padding: .6rem .85rem; transition: border-color .2s; outline: none; margin-bottom: 1.1rem;
+    }
+    .fb-select:focus, .fb-textarea:focus { border-color: #4ecdc4; }
+    .fb-textarea { min-height: 115px; resize: vertical; margin-bottom: .25rem; }
+    .fb-select option { background: #1a1d28; }
+    .fb-counter { font-size: .72rem; color: rgba(255,255,255,.28); text-align: right; margin-bottom: 1.1rem; }
+    .fb-submit {
+      width: 100%; padding: .82rem; border-radius: 50px; border: none;
+      background: linear-gradient(135deg, #4ecdc4, #44a8e0);
+      color: white; font-weight: 700; font-size: .93rem; cursor: pointer;
+      transition: transform .2s, box-shadow .2s, opacity .2s;
+      box-shadow: 0 4px 20px rgba(78,205,196,.35);
+    }
+    .fb-submit:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 7px 26px rgba(78,205,196,.45); }
+    .fb-submit:disabled { opacity: .42; cursor: not-allowed; }
+    .fb-msg { font-size: .82rem; text-align: center; margin-top: .7rem; min-height: 1.1em; }
+    .fb-msg.ok  { color: #4ecdc4; }
+    .fb-msg.err { color: #ef9a9a; }
   </style>
 </head>
 <body>
@@ -332,6 +405,43 @@
     <div class="footer-pills" id="footerPills"></div>
     <p class="footer-copy" id="footerCopy">&copy; 2024&ndash;2026 GeoMaster. All rights reserved.</p>
   </footer>
+
+  <!-- ── FEEDBACK FAB ── -->
+  <button class="feedback-fab" id="feedbackFab" aria-label="Send feedback">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Feedback
+  </button>
+
+  <!-- ── FEEDBACK MODAL ── -->
+  <div class="fb-backdrop" id="fbBackdrop" role="dialog" aria-modal="true" aria-labelledby="fbTitle">
+    <div class="fb-modal">
+      <div class="fb-header">
+        <div class="fb-title" id="fbTitle">&#128172; Feedback</div>
+        <button class="fb-close" id="fbClose" aria-label="Close">&times;</button>
+      </div>
+      <div class="fb-limit-banner" id="fbLimitBanner" style="display:none;">
+        Daily limit reached (30/day). Come back tomorrow!
+      </div>
+      <form id="fbForm" novalidate>
+        <label class="fb-label">Type</label>
+        <div class="fb-type-row">
+          <div class="fb-type-btn active" data-type="bug">&#128027; Bug report</div>
+          <div class="fb-type-btn" data-type="suggestion">&#128161; Suggestion</div>
+        </div>
+        <input type="hidden" id="fbType" value="bug">
+        <label class="fb-label" for="fbEdition">Edition (optional)</label>
+        <select class="fb-select" id="fbEdition">
+          <option value="">&#8212; All editions &#8212;</option>
+        </select>
+        <label class="fb-label" for="fbText">Description</label>
+        <textarea class="fb-textarea" id="fbText" maxlength="1000"
+          placeholder="Describe the bug or your idea&#8230;" required></textarea>
+        <div class="fb-counter"><span id="fbCharCount">0</span> / 1000</div>
+        <button type="submit" class="fb-submit" id="fbSubmit">Send</button>
+        <div class="fb-msg" id="fbMsg" role="status"></div>
+      </form>
+    </div>
+  </div>
 
   <script>
     // ── LANGUAGE STRINGS ─────────────────────────────────────────────────
@@ -402,7 +512,7 @@
         stat1: '35', statLabel1: 'Countries', stat2: '8', statLabel2: 'Game Modes',
         color1: '#2E7D32', color2: '#1B5E20', accent: '#A5D6A7',
         folder: 'Presentation-GeoMaster_AM_Edition', hasGraphic: true, screenshots: 8,
-        androidId: 'com.guigui314.GeoMasteramEdition', iosId: '6764829583',
+        androidId: 'com.guigui314.GeoMasteramEdition', iosId: '6766255124',
         games: ['Most Populated','Largest','Flags','Capitals','Blind Rank','Organisations','Speed Round','Learning'],
       },
       {
@@ -641,6 +751,128 @@
       entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+    // ── FEEDBACK SYSTEM ──────────────────────────────────────────────────
+    // Setup (choose ONE option):
+    //   A) Formspree — sign up at formspree.io → New Form → paste endpoint below
+    //      Submissions visible in the Formspree dashboard + sent by email.
+    //   B) FormSubmit — no account needed:
+    //      Replace URL with: https://formsubmit.co/ajax/YOUR@EMAIL.COM
+    //      First submission sends a verification email; then all go to your inbox.
+    const FB_ENDPOINT    = 'https://formspree.io/f/YOUR_FORM_ID'; // ← replace
+    const FB_DAILY_LIMIT = 30; // max submissions per browser per day
+
+    // Populate edition selector
+    (function () {
+      const sel = document.getElementById('fbEdition');
+      EDITIONS.forEach(e => {
+        const opt = document.createElement('option');
+        opt.value = e.subtitle;
+        opt.textContent = e.subtitle;
+        sel.appendChild(opt);
+      });
+    })();
+
+    // Rate-limit helpers (localStorage, resets each calendar day)
+    function fbDayKey()   { return 'fb_cnt_' + new Date().toISOString().slice(0, 10); }
+    function fbGetCount() { return parseInt(localStorage.getItem(fbDayKey()) || '0', 10); }
+    function fbIncrement() {
+      const k = fbDayKey();
+      localStorage.setItem(k, fbGetCount() + 1);
+      // Clean up previous days
+      Object.keys(localStorage)
+        .filter(x => x.startsWith('fb_cnt_') && x !== k)
+        .forEach(x => localStorage.removeItem(x));
+    }
+    function fbIsLimited() { return fbGetCount() >= FB_DAILY_LIMIT; }
+    function fbUpdateLimitUI() {
+      const limited = fbIsLimited();
+      document.getElementById('fbLimitBanner').style.display = limited ? '' : 'none';
+      document.getElementById('fbSubmit').disabled  = limited;
+      document.getElementById('fbText').disabled    = limited;
+      document.getElementById('fbEdition').disabled = limited;
+      document.querySelectorAll('.fb-type-btn').forEach(b => {
+        b.style.pointerEvents = limited ? 'none' : '';
+        b.style.opacity = limited ? '.35' : '';
+      });
+    }
+
+    // Modal open / close
+    function fbOpen() {
+      document.getElementById('fbBackdrop').classList.add('open');
+      document.getElementById('fbMsg').textContent = '';
+      document.getElementById('fbMsg').className = 'fb-msg';
+      fbUpdateLimitUI();
+    }
+    function fbClose() { document.getElementById('fbBackdrop').classList.remove('open'); }
+
+    document.getElementById('feedbackFab').addEventListener('click', fbOpen);
+    document.getElementById('fbClose').addEventListener('click', fbClose);
+    document.getElementById('fbBackdrop').addEventListener('click', e => {
+      if (e.target === document.getElementById('fbBackdrop')) fbClose();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') fbClose(); });
+
+    // Type selector
+    document.querySelectorAll('.fb-type-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (fbIsLimited()) return;
+        document.querySelectorAll('.fb-type-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('fbType').value = btn.dataset.type;
+      });
+    });
+
+    // Char counter
+    document.getElementById('fbText').addEventListener('input', function () {
+      document.getElementById('fbCharCount').textContent = this.value.length;
+    });
+
+    // Form submit
+    document.getElementById('fbForm').addEventListener('submit', async function (ev) {
+      ev.preventDefault();
+      if (fbIsLimited()) return;
+
+      const text  = document.getElementById('fbText').value.trim();
+      const msgEl = document.getElementById('fbMsg');
+
+      if (text.length < 10) {
+        msgEl.textContent = 'Please write at least 10 characters.';
+        msgEl.className = 'fb-msg err';
+        return;
+      }
+
+      const submitBtn = document.getElementById('fbSubmit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending\u2026';
+      msgEl.textContent = '';
+      msgEl.className = 'fb-msg';
+
+      try {
+        const res = await fetch(FB_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            type:    document.getElementById('fbType').value,
+            edition: document.getElementById('fbEdition').value || 'All editions',
+            message: text,
+          }),
+        });
+        if (!res.ok) throw new Error(res.status);
+        fbIncrement();
+        msgEl.textContent = '\u2713 Thanks! Your feedback has been received.';
+        msgEl.className = 'fb-msg ok';
+        document.getElementById('fbText').value = '';
+        document.getElementById('fbCharCount').textContent = '0';
+        fbUpdateLimitUI();
+        setTimeout(fbClose, 2500);
+      } catch {
+        msgEl.textContent = 'Failed to send. Please try again later.';
+        msgEl.className = 'fb-msg err';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send';
+      }
+    });
   </script>
 </body>
 </html>
