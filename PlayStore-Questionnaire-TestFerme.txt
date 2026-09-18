@@ -1,0 +1,306 @@
+╔══════════════════════════════════════════════════════════════════╗
+║     GOOGLE PLAY — QUESTIONNAIRE TEST FERMÉ — TOUTES ÉDITIONS     ║
+║              Periplo (Guillaume / guigui314)                   ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Chaque réponse est limitée à 300 caractères dans le formulaire Play Store.
+Ce fichier regroupe les réponses pour les 5 éditions régionales.
+
+══════════════════════════════════════════════════════════════════
+                      ÉDITION AFRIQUE
+══════════════════════════════════════════════════════════════════
+
+1. Comment avez-vous recruté des utilisateurs pour votre test fermé ?
+──────────────────────────────────────────────────────────────────
+J'ai recruté des proches et membres de ma famille via partage direct d'un lien de test, et fait appel à un fournisseur de tests payant pour élargir le panel. Priorité aux profils intéressés par la géographie africaine.
+
+[217 caractères]
+
+──────────────────────────────────────────────────────────────────
+2. Décrivez l'engagement des testeurs au cours de votre test fermé.
+──────────────────────────────────────────────────────────────────
+Les testeurs ont exploré les modes Drapeaux et Capitales en priorité, puis le mode Campagne. La progression observée est naturelle et représentative d'un utilisateur réel. Toutes les fonctionnalités ont été couvertes sur plusieurs sessions.
+
+[238 caractères]
+
+──────────────────────────────────────────────────────────────────
+3. Fournissez un résumé des commentaires que vous avez reçus des testeurs.
+──────────────────────────────────────────────────────────────────
+Retours collectés par messagerie directe. Points forts : qualité visuelle des drapeaux, richesse des données pour les 54 pays. Suggestions : lisibilité de certains noms longs. Corrections appliquées avant soumission en production.
+
+[229 caractères]
+
+──────────────────────────────────────────────────────────────────
+4. À qui s'adresse votre jeu ?
+──────────────────────────────────────────────────────────────────
+Élèves, étudiants et adultes souhaitant découvrir ou réviser la géographie africaine. Convient aussi aux familles, voyageurs et passionnés de culture générale. Accessible dès 8 ans, adapté à tous les niveaux de connaissance.
+
+[224 caractères]
+
+──────────────────────────────────────────────────────────────────
+5. Décrivez les spécificités de votre jeu.
+──────────────────────────────────────────────────────────────────
+Couverture complète des 54 pays africains : drapeaux HD, capitales, superficies, populations. 13 modes de jeu dont multijoueur en temps réel avec système Elo. Mode Apprentissage avec filtres régionaux. 14 langues. Gratuit.
+
+[231 caractères]
+
+──────────────────────────────────────────────────────────────────
+6. Quelles modifications avez-vous apportées à votre jeu d'après le test fermé ?
+──────────────────────────────────────────────────────────────────
+Correction de données géographiques signalées inexactes. Amélioration de l'affichage des noms longs. Ajustement des niveaux de difficulté en mode Campagne. Optimisation des performances sur appareils Android anciens.
+
+[214 caractères]
+
+──────────────────────────────────────────────────────────────────
+7. Comment avez-vous décidé que votre jeu était prêt à passer en production ?
+──────────────────────────────────────────────────────────────────
+Plusieurs semaines de test sans bug critique, validation complète des données pour les 54 pays africains, et retours positifs stables des testeurs sur la fluidité, la stabilité et la qualité du contenu.
+
+[200 caractères]
+
+──────────────────────────────────────────────────────────────────
+8. Tests supplémentaires — Qu'avez-vous fait différemment cette fois-ci ?
+──────────────────────────────────────────────────────────────────
+J'ai élargi le panel de testeurs et ciblé spécifiquement les modes Multijoueur et Campagne. J'ai également vérifié manuellement l'exactitude des données pour l'ensemble des pays africains, plus rigoureusement que lors des cycles précédents.
+
+[239 caractères]
+
+
+══════════════════════════════════════════════════════════════════
+                      ÉDITION AMÉRIQUES
+══════════════════════════════════════════════════════════════════
+
+1. Comment avez-vous recruté des utilisateurs pour votre test fermé ?
+──────────────────────────────────────────────────────────────────
+Recrutement via réseau personnel et forums communautaires, complété par un fournisseur de tests payant pour diversifier les profils. Priorité aux utilisateurs connaissant les Amériques du Nord et du Sud.
+
+[239 caractères]
+
+──────────────────────────────────────────────────────────────────
+2. Décrivez l'engagement des testeurs au cours de votre test fermé.
+──────────────────────────────────────────────────────────────────
+Engagement élevé sur les sous-régions exclusives (provinces du Canada, États du Brésil) et le mode Multijoueur. Les testeurs ont utilisé l'ensemble des modes sur plusieurs sessions, avec un usage proche d'un joueur régulier cherchant à progresser.
+
+[246 caractères]
+
+──────────────────────────────────────────────────────────────────
+3. Fournissez un résumé des commentaires que vous avez reçus des testeurs.
+──────────────────────────────────────────────────────────────────
+Retours recueillis par messagerie directe. Très bons retours sur les sous-régions et la précision des données. Quelques suggestions sur l'ergonomie du menu principal, prises en compte avant la mise en ligne.
+
+[204 caractères]
+
+──────────────────────────────────────────────────────────────────
+4. À qui s'adresse votre jeu ?
+──────────────────────────────────────────────────────────────────
+Joueurs curieux des Amériques : élèves, familles, voyageurs, compétiteurs. Le mode Multijoueur attire les profils compétitifs ; le mode Apprentissage avec sous-régions convient aux utilisateurs souhaitant approfondir leur connaissance. Dès 8 ans.
+
+[244 caractères]
+
+──────────────────────────────────────────────────────────────────
+5. Décrivez les spécificités de votre jeu.
+──────────────────────────────────────────────────────────────────
+35+ pays des Amériques avec sous-régions exclusives : provinces du Canada et États du Brésil. 13 modes de jeu, multijoueur Elo en temps réel, drapeaux HD, 14 langues. Gratuit, sans paywall. Unique par sa profondeur géographique.
+
+[236 caractères]
+
+──────────────────────────────────────────────────────────────────
+6. Quelles modifications avez-vous apportées à votre jeu d'après le test fermé ?
+──────────────────────────────────────────────────────────────────
+Ajout de données manquantes sur certaines sous-régions signalées. Correction de superficies incorrectes. Amélioration du temps de chargement du mode Multijoueur. Retouche de l'interface en mode portrait sur petits écrans.
+
+[220 caractères]
+
+──────────────────────────────────────────────────────────────────
+7. Comment avez-vous décidé que votre jeu était prêt à passer en production ?
+──────────────────────────────────────────────────────────────────
+Décision prise après trois semaines sans bug critique, validation de l'exactitude des données géographiques et confirmation du bon fonctionnement du Multijoueur avec plusieurs joueurs simultanés en conditions réelles.
+
+[214 caractères]
+
+──────────────────────────────────────────────────────────────────
+8. Tests supplémentaires — Qu'avez-vous fait différemment cette fois-ci ?
+──────────────────────────────────────────────────────────────────
+Focus mis sur le Multijoueur avec connexions simultanées réelles et sur les sous-régions (Canada, Brésil). J'ai aussi testé sur un éventail plus large de modèles d'appareils Android pour valider la compatibilité.
+
+[210 caractères]
+
+
+══════════════════════════════════════════════════════════════════
+                        ÉDITION ASIE
+══════════════════════════════════════════════════════════════════
+
+1. Comment avez-vous recruté des utilisateurs pour votre test fermé ?
+──────────────────────────────────────────────────────────────────
+Recrutement via réseau personnel (étudiants, expatriés, voyageurs) et via un fournisseur de tests payant pour atteindre des profils variés et représentatifs de la région asiatique.
+
+[245 caractères]
+
+──────────────────────────────────────────────────────────────────
+2. Décrivez l'engagement des testeurs au cours de votre test fermé.
+──────────────────────────────────────────────────────────────────
+Très fort engagement sur les sous-régions (préfectures japonaises, provinces indonésiennes), fonctionnalité jugée unique par les testeurs. Plusieurs sessions par testeur, avec exploration progressive des 13 modes disponibles.
+
+[224 caractères]
+
+──────────────────────────────────────────────────────────────────
+3. Fournissez un résumé des commentaires que vous avez reçus des testeurs.
+──────────────────────────────────────────────────────────────────
+Collecte par messagerie directe. Enthousiasme marqué pour les sous-régions et la précision culturelle. Demandes d'ajout de pays notées pour une future version. Corrections mineures de données appliquées avant publication.
+
+[220 caractères]
+
+──────────────────────────────────────────────────────────────────
+4. À qui s'adresse votre jeu ?
+──────────────────────────────────────────────────────────────────
+Passionnés de culture asiatique, étudiants en géographie ou en langues asiatiques, voyageurs préparant un séjour. Le niveau de détail des sous-régions intéresse aussi les utilisateurs avancés cherchant un vrai défi géographique.
+
+[228 caractères]
+
+──────────────────────────────────────────────────────────────────
+5. Décrivez les spécificités de votre jeu.
+──────────────────────────────────────────────────────────────────
+50+ pays asiatiques avec sous-régions exclusives : préfectures du Japon et provinces d'Indonésie. 13 modes de jeu, multijoueur Elo en temps réel, 14 langues dont japonais, coréen, chinois, hindi. Gratuit.
+
+[221 caractères]
+
+──────────────────────────────────────────────────────────────────
+6. Quelles modifications avez-vous apportées à votre jeu d'après le test fermé ?
+──────────────────────────────────────────────────────────────────
+Correction de données sur les préfectures japonaises. Amélioration de l'affichage des caractères asiatiques sur certains appareils. Ajustement des filtres en mode Apprentissage. Optimisation de la fluidité du Multijoueur.
+
+[221 caractères]
+
+──────────────────────────────────────────────────────────────────
+7. Comment avez-vous décidé que votre jeu était prêt à passer en production ?
+──────────────────────────────────────────────────────────────────
+Validation après vérification exhaustive des données pour chaque pays et sous-région asiatique, tests de stabilité prolongés sur plusieurs appareils, et absence confirmée de bug bloquant sur toutes les fonctionnalités.
+
+[216 caractères]
+
+──────────────────────────────────────────────────────────────────
+8. Tests supplémentaires — Qu'avez-vous fait différemment cette fois-ci ?
+──────────────────────────────────────────────────────────────────
+J'ai impliqué des testeurs natifs de pays asiatiques pour valider la précision culturelle et linguistique. Les sous-régions (préfectures japonaises, provinces indonésiennes) ont été testées de manière plus approfondie que lors des sessions précédentes.
+
+[250 caractères]
+
+
+══════════════════════════════════════════════════════════════════
+                      ÉDITION PACIFIQUE
+══════════════════════════════════════════════════════════════════
+
+1. Comment avez-vous recruté des utilisateurs pour votre test fermé ?
+──────────────────────────────────────────────────────────────────
+Recrutement par réseau direct parmi des passionnés de géographie océanique, renforcé par un fournisseur de tests payant pour obtenir des retours de profils plus variés sur cette région de niche.
+
+[250 caractères]
+
+──────────────────────────────────────────────────────────────────
+2. Décrivez l'engagement des testeurs au cours de votre test fermé.
+──────────────────────────────────────────────────────────────────
+Les testeurs ont exploré les modes Drapeaux et Capitales avec enthousiasme, appréciant la rareté des données sur les petits États insulaires. Plusieurs sessions de jeu par testeur, usage représentatif d'un utilisateur réel.
+
+[222 caractères]
+
+──────────────────────────────────────────────────────────────────
+3. Fournissez un résumé des commentaires que vous avez reçus des testeurs.
+──────────────────────────────────────────────────────────────────
+Retours par messagerie directe. Principal retour positif : la couverture des micro-États souvent absents d'autres apps. Corrections sur les noms officiels de plusieurs territoires insulaires appliquées avant publication.
+
+[218 caractères]
+
+──────────────────────────────────────────────────────────────────
+4. À qui s'adresse votre jeu ?
+──────────────────────────────────────────────────────────────────
+Curieux du monde, géographes amateurs, enseignants et voyageurs du Pacifique. L'app comble un vide : peu d'applications couvrent sérieusement les îles et micro-États du Pacifique. Accessible à tous, dès 8 ans.
+
+[207 caractères]
+
+──────────────────────────────────────────────────────────────────
+5. Décrivez les spécificités de votre jeu.
+──────────────────────────────────────────────────────────────────
+Couverture unique des pays et territoires du Pacifique, y compris les micro-États insulaires ignorés par la plupart des apps. Drapeaux HD, capitales, données vérifiées. 13 modes, 14 langues, multijoueur Elo. Gratuit.
+
+[215 caractères]
+
+──────────────────────────────────────────────────────────────────
+6. Quelles modifications avez-vous apportées à votre jeu d'après le test fermé ?
+──────────────────────────────────────────────────────────────────
+Correction des noms officiels de plusieurs territoires insulaires. Ajout de données manquantes sur certains micro-États. Amélioration de l'affichage des drapeaux sur petits écrans. Retouches mineures de l'interface Quiz.
+
+[219 caractères]
+
+──────────────────────────────────────────────────────────────────
+7. Comment avez-vous décidé que votre jeu était prêt à passer en production ?
+──────────────────────────────────────────────────────────────────
+Validation après vérification de l'exactitude des données pour chaque île et territoire, tests prolongés sans bug critique, et retours testeurs positifs constants sur la qualité et l'originalité du contenu.
+
+[204 caractères]
+
+──────────────────────────────────────────────────────────────────
+8. Tests supplémentaires — Qu'avez-vous fait différemment cette fois-ci ?
+──────────────────────────────────────────────────────────────────
+Vérification manuelle de chaque drapeau et capitale des micro-États et territoires peu connus. Nombre de sessions de test augmenté. Focus particulier sur la précision des données pour les îles isolées, absent des cycles précédents.
+
+[230 caractères]
+
+
+══════════════════════════════════════════════════════════════════
+                      ÉDITION US (ÉTATS-UNIS)
+══════════════════════════════════════════════════════════════════
+
+1. Comment avez-vous recruté des utilisateurs pour votre test fermé ?
+──────────────────────────────────────────────────────────────────
+Recrutement via messagerie directe auprès de proches, complété par un fournisseur de tests payant pour couvrir un panel varié en termes d'âge, de niveau scolaire et de profil d'utilisation.
+
+[249 caractères]
+
+──────────────────────────────────────────────────────────────────
+2. Décrivez l'engagement des testeurs au cours de votre test fermé.
+──────────────────────────────────────────────────────────────────
+Les testeurs ont couvert la majorité des 12 modes disponibles, avec un intérêt particulier pour les capitales d'États, la Campagne et le Multijoueur. L'usage observé correspond bien à un utilisateur américain typique.
+
+[214 caractères]
+
+──────────────────────────────────────────────────────────────────
+3. Fournissez un résumé des commentaires que vous avez reçus des testeurs.
+──────────────────────────────────────────────────────────────────
+Retours via messagerie directe et échanges informels. Très bonne réception du contenu spécifique aux États-Unis. Suggestions sur la clarté de certaines questions en mode Quiz. Corrections appliquées avant mise en ligne.
+
+[217 caractères]
+
+──────────────────────────────────────────────────────────────────
+4. À qui s'adresse votre jeu ?
+──────────────────────────────────────────────────────────────────
+Élèves américains en révision civique, familles, adultes passionnés de géographie des États-Unis. Convient aussi aux étrangers souhaitant mieux connaître les 50 États. Accessible dès 8 ans, sans abonnement ni achat.
+
+[212 caractères]
+
+──────────────────────────────────────────────────────────────────
+5. Décrivez les spécificités de votre jeu.
+──────────────────────────────────────────────────────────────────
+Couverture complète des 50 États : drapeaux, capitales, superficies, populations. 12 modes de jeu dont multijoueur Elo en temps réel. Interface disponible en 14 langues. Gratuit, sans paywall. Données vérifiées.
+
+[219 caractères]
+
+──────────────────────────────────────────────────────────────────
+6. Quelles modifications avez-vous apportées à votre jeu d'après le test fermé ?
+──────────────────────────────────────────────────────────────────
+Correction de données de population pour plusieurs États. Amélioration des animations en fin de partie. Ajustement de la difficulté des premiers niveaux en Campagne. Optimisation de l'écran de résultats Multijoueur.
+
+[214 caractères]
+
+──────────────────────────────────────────────────────────────────
+7. Comment avez-vous décidé que votre jeu était prêt à passer en production ?
+──────────────────────────────────────────────────────────────────
+Déclaré prêt après validation exhaustive des 50 États, deux semaines de test intensif sans bug critique, et confirmation du bon fonctionnement du Multijoueur dans des conditions réelles d'utilisation sur Android.
+
+[210 caractères]
+
+──────────────────────────────────────────────────────────────────
+8. Tests supplémentaires — Qu'avez-vous fait différemment cette fois-ci ?
+──────────────────────────────────────────────────────────────────
+Concentration sur la robustesse du Multijoueur avec joueurs réels simultanés et sur la précision des données par État. Couverture élargie des appareils Android testés. Vérification orthographique de toutes les capitales d'États.
+
+[229 caractères]

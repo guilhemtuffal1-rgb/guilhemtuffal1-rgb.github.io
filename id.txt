@@ -1,0 +1,7 @@
+name: 'World', androidId: 'com.guigui314.GeoMaster', iosId: '6764830622'
+name: 'Africa', androidId: 'com.guigui314.GeoMasterafEdition', iosId: '6764829384'
+name: 'Americas', androidId: 'com.guigui314.GeoMasteramEdition', iosId: '6766255124'//true but not published, so safe to use
+name: 'Asia', androidId: 'com.guigui314.GeoMasterasEdition', iosId: '6764829781'
+name: 'Europe', androidId: 'com.guigui314.GeoMastereuEdition', iosId: '6764586510'
+name: 'Pacific', androidId: 'com.guigui314.GeoMasterpaEdition', iosId: '6764829855'
+name: 'US States', androidId: 'com.guigui314.GeoMasterUSEdition', iosId: '6766081243'//true but not published, so safe to use
