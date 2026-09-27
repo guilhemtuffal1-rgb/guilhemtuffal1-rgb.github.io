@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Periplo — Get the app</title>
+<meta name="description" content="Open Periplo on the App Store or Google Play.">
+<meta name="robots" content="noindex">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: #0f1117; color: #fff;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 2rem 1.25rem; text-align: center;
+  }
+  .card { max-width: 420px; width: 100%; }
+  .logo { font-size: 1.6rem; font-weight: 900; margin-bottom: .25rem; }
+  .edition { opacity: .65; margin-bottom: 2rem; }
+  .spinner {
+    width: 34px; height: 34px; margin: 0 auto 1.5rem; border-radius: 50%;
+    border: 3px solid rgba(255,255,255,.15); border-top-color: #4DB6AC;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .status { opacity: .75; font-size: .95rem; margin-bottom: 2rem; }
+  .btns { display: flex; flex-direction: column; gap: .8rem; }
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: .5rem;
+    padding: .9rem 1.1rem; border-radius: 12px; font-weight: 700; text-decoration: none;
+    color: #fff; background: #1b1e27; border: 1px solid rgba(255,255,255,.12);
+  }
+  .btn:hover { background: #242833; }
+  noscript a { color: #4DB6AC; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">Periplo</div>
+    <div class="edition" id="editionLabel">&nbsp;</div>
+    <div id="autoRedirect">
+      <div class="spinner" aria-hidden="true"></div>
+      <div class="status" id="statusText">Opening the app store…</div>
+    </div>
+    <div class="btns">
+      <a class="btn" id="androidBtn" href="https://play.google.com/store/apps/details?id=com.guigui314.GeoMaster">▶ Download on Android</a>
+      <a class="btn" id="iosBtn" href="https://apps.apple.com/app/id6764830622">🍎 Download on iOS</a>
+    </div>
+    <noscript>
+      <p style="margin-top:1.5rem;">JavaScript is disabled — pick your platform above, or visit
+        <a href="https://guilhemtuffal1-rgb.github.io/">the full site</a> to choose an edition.</p>
+    </noscript>
+  </div>
+
+<script type="module">
+  import { EDITIONS, pickEdition, sanitizeCampaign, detectPlatform, buildAppStoreUrl, buildPlayUrl }
+    from './redirect.mjs';
+
+  const params = new URLSearchParams(location.search);
+  const edition = pickEdition(params.get('e'));
+  const campaign = sanitizeCampaign(params.get('c'));
+  const { androidId, iosId } = EDITIONS[edition];
+
+  const iosUrl = buildAppStoreUrl(iosId, campaign);
+  const playUrl = buildPlayUrl(androidId, campaign);
+
+  document.getElementById('androidBtn').href = playUrl;
+  document.getElementById('iosBtn').href = iosUrl;
+  document.getElementById('editionLabel').textContent = edition[0].toUpperCase() + edition.slice(1) + ' edition';
+
+  const platform = detectPlatform(navigator.userAgent, navigator.platform, navigator.maxTouchPoints);
+
+  if (platform === 'ios') {
+    location.replace(iosUrl);
+  } else if (platform === 'android') {
+    location.replace(playUrl);
+  } else {
+    // Desktop: no store to redirect to — show the two buttons instead.
+    document.getElementById('autoRedirect').style.display = 'none';
+  }
+</script>
+</body>
+</html>
