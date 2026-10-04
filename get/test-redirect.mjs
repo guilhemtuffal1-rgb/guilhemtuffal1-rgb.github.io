@@ -3,6 +3,7 @@ import assert from 'node:assert';
 import {
   EDITIONS, pickEdition, sanitizeCampaign, detectPlatform,
   buildAppStoreUrl, buildPlayUrl, APPLE_PROVIDER_TOKEN,
+  sanitizeQuizCode, buildAndroidQuizIntent,
 } from './redirect.mjs';
 
 // pickEdition falls back to world for unknown/missing codes
@@ -35,5 +36,15 @@ assert.ok(APPLE_PROVIDER_TOKEN.startsWith('REPLACE_'), 'update this test once a 
 const iosUrl = buildAppStoreUrl(EDITIONS.world.iosId, 'daily');
 assert.strictEqual(iosUrl, 'https://apps.apple.com/app/id6764830622?mt=8');
 assert.ok(!iosUrl.includes('pt=') && !iosUrl.includes('ct='));
+
+// Shared quiz codes: the app's alphabet only, case-insensitive
+assert.strictEqual(sanitizeQuizCode('ab3k7m'), 'AB3K7M');
+assert.strictEqual(sanitizeQuizCode('AB3K70'), null);
+assert.strictEqual(sanitizeQuizCode('AB3K7M&x=1'), null);
+assert.strictEqual(sanitizeQuizCode(null), null);
+const intent = buildAndroidQuizIntent('world', 'AB3K7M', EDITIONS.world.androidId, playUrl);
+assert.ok(intent.startsWith('intent://quiz/AB3K7M#Intent;scheme=periplo-world;package=com.guigui314.GeoMaster;'));
+assert.ok(intent.endsWith(';end'));
+assert.strictEqual(decodeURIComponent(intent.split('S.browser_fallback_url=')[1].slice(0, -4)), playUrl);
 
 console.log('get/redirect.mjs: all assertions passed');

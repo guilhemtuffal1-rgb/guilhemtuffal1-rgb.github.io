@@ -1,0 +1,2 @@
+# GitHub Pages (Jekyll) skips dot folders: publish the universal links file.
+include: [".well-known"]

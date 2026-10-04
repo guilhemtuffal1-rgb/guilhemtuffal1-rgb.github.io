@@ -6,6 +6,16 @@
 Chaque réponse est limitée à 300 caractères dans le formulaire Play Store.
 Ce fichier regroupe les réponses pour les 5 éditions régionales.
 
+Mise à jour 27/09/2026 : AF, AM, AS et PA sont encore en test alpha/interne, le test
+fermé de 12 testeurs / 14 jours exigé par Google n'a pas encore commencé (calendrier
+proposé dans PROMPTS_MONETISATION_DIFFUSION.md, prompt 8). Les réponses ci-dessous sont
+un brouillon écrit par anticipation, au passé, comme si le test avait eu lieu : elles
+donnent le format et le ton attendus, mais les points concrets (retours, corrections,
+nombre de sessions) sont à remplacer par les faits réels une fois les 14 jours écoulés,
+avant de les coller dans le formulaire Play Console. Seuls les faits produit vérifiables
+dans le code (langues, modes) ont été corrigés ici : 14 -> 21 langues (src/i18n/locales
+en compte 21 dans les 7 éditions au 27/09/2026).
+
 ══════════════════════════════════════════════════════════════════
                       ÉDITION AFRIQUE
 ══════════════════════════════════════════════════════════════════
@@ -40,7 +50,7 @@ Retours collectés par messagerie directe. Points forts : qualité visuelle des 
 ──────────────────────────────────────────────────────────────────
 5. Décrivez les spécificités de votre jeu.
 ──────────────────────────────────────────────────────────────────
-Couverture complète des 54 pays africains : drapeaux HD, capitales, superficies, populations. 13 modes de jeu dont multijoueur en temps réel avec système Elo. Mode Apprentissage avec filtres régionaux. 14 langues. Gratuit.
+Couverture complète des 54 pays africains : drapeaux HD, capitales, superficies, populations. 13 modes de jeu dont multijoueur en temps réel avec système Elo. Mode Apprentissage avec filtres régionaux. 21 langues. Gratuit.
 
 [231 caractères]
 
@@ -100,7 +110,7 @@ Joueurs curieux des Amériques : élèves, familles, voyageurs, compétiteurs. L
 ──────────────────────────────────────────────────────────────────
 5. Décrivez les spécificités de votre jeu.
 ──────────────────────────────────────────────────────────────────
-35+ pays des Amériques avec sous-régions exclusives : provinces du Canada et États du Brésil. 13 modes de jeu, multijoueur Elo en temps réel, drapeaux HD, 14 langues. Gratuit, sans paywall. Unique par sa profondeur géographique.
+35+ pays des Amériques avec sous-régions exclusives : provinces du Canada et États du Brésil. 13 modes de jeu, multijoueur Elo en temps réel, drapeaux HD, 21 langues. Gratuit, sans paywall. Unique par sa profondeur géographique.
 
 [236 caractères]
 
@@ -160,7 +170,7 @@ Passionnés de culture asiatique, étudiants en géographie ou en langues asiati
 ──────────────────────────────────────────────────────────────────
 5. Décrivez les spécificités de votre jeu.
 ──────────────────────────────────────────────────────────────────
-50+ pays asiatiques avec sous-régions exclusives : préfectures du Japon et provinces d'Indonésie. 13 modes de jeu, multijoueur Elo en temps réel, 14 langues dont japonais, coréen, chinois, hindi. Gratuit.
+50+ pays asiatiques avec sous-régions exclusives : préfectures du Japon et provinces d'Indonésie. 13 modes de jeu, multijoueur Elo en temps réel, 21 langues dont japonais, coréen, chinois, hindi. Gratuit.
 
 [221 caractères]
 
@@ -220,7 +230,7 @@ Curieux du monde, géographes amateurs, enseignants et voyageurs du Pacifique. L
 ──────────────────────────────────────────────────────────────────
 5. Décrivez les spécificités de votre jeu.
 ──────────────────────────────────────────────────────────────────
-Couverture unique des pays et territoires du Pacifique, y compris les micro-États insulaires ignorés par la plupart des apps. Drapeaux HD, capitales, données vérifiées. 13 modes, 14 langues, multijoueur Elo. Gratuit.
+Couverture unique des pays et territoires du Pacifique, y compris les micro-États insulaires ignorés par la plupart des apps. Drapeaux HD, capitales, données vérifiées. 13 modes, 21 langues, multijoueur Elo. Gratuit.
 
 [215 caractères]
 
@@ -280,7 +290,7 @@ Retours via messagerie directe et échanges informels. Très bonne réception du
 ──────────────────────────────────────────────────────────────────
 5. Décrivez les spécificités de votre jeu.
 ──────────────────────────────────────────────────────────────────
-Couverture complète des 50 États : drapeaux, capitales, superficies, populations. 12 modes de jeu dont multijoueur Elo en temps réel. Interface disponible en 14 langues. Gratuit, sans paywall. Données vérifiées.
+Couverture complète des 50 États : drapeaux, capitales, superficies, populations. 12 modes de jeu dont multijoueur Elo en temps réel. Interface disponible en 21 langues. Gratuit, sans paywall. Données vérifiées.
 
 [219 caractères]
 

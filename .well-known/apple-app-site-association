@@ -1,0 +1,111 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "P3ZDWT6W4H.com.guigui314.GeoMaster"
+        ],
+        "components": [
+          {
+            "/": "/get/*",
+            "?": {
+              "e": "world",
+              "c": "quiz"
+            },
+            "comment": "Shared Game Maker quiz of the world edition"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "P3ZDWT6W4H.com.guigui314.GeoMastereuEdition"
+        ],
+        "components": [
+          {
+            "/": "/get/*",
+            "?": {
+              "e": "europe",
+              "c": "quiz"
+            },
+            "comment": "Shared Game Maker quiz of the europe edition"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "P3ZDWT6W4H.com.guigui314.GeoMasterafEdition"
+        ],
+        "components": [
+          {
+            "/": "/get/*",
+            "?": {
+              "e": "africa",
+              "c": "quiz"
+            },
+            "comment": "Shared Game Maker quiz of the africa edition"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "P3ZDWT6W4H.com.guigui314.GeoMasteramEdition"
+        ],
+        "components": [
+          {
+            "/": "/get/*",
+            "?": {
+              "e": "americas",
+              "c": "quiz"
+            },
+            "comment": "Shared Game Maker quiz of the americas edition"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "P3ZDWT6W4H.com.guigui314.GeoMasterasEdition"
+        ],
+        "components": [
+          {
+            "/": "/get/*",
+            "?": {
+              "e": "asia",
+              "c": "quiz"
+            },
+            "comment": "Shared Game Maker quiz of the asia edition"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "P3ZDWT6W4H.com.guigui314.GeoMasterpaEdition"
+        ],
+        "components": [
+          {
+            "/": "/get/*",
+            "?": {
+              "e": "pacific",
+              "c": "quiz"
+            },
+            "comment": "Shared Game Maker quiz of the pacific edition"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "P3ZDWT6W4H.com.guigui314.GeoMasterUSEdition"
+        ],
+        "components": [
+          {
+            "/": "/get/*",
+            "?": {
+              "e": "us",
+              "c": "quiz"
+            },
+            "comment": "Shared Game Maker quiz of the us edition"
+          }
+        ]
+      }
+    ]
+  }
+}

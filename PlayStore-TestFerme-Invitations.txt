@@ -1,0 +1,118 @@
+╔══════════════════════════════════════════════════════════════════╗
+║   GOOGLE PLAY — TEST FERMÉ AF/AM/AS/PA — PISTE, INVITATIONS,      ║
+║   CALENDRIER (préparé le 27/09/2026, prompt 8)                    ║
+╚══════════════════════════════════════════════════════════════════╝
+
+Contexte : Google exige, avant l'accès production, un test fermé d'au moins 12
+testeurs restés opt-in pendant 14 jours consécutifs. AF, AM, AS et PA sont
+aujourd'hui en alpha/interne seulement - ce test n'a pas commencé. World, EU et
+US sont déjà en production et ne sont pas concernés.
+
+Les mêmes personnes peuvent tester les 4 apps en parallèle (note F du prompt) :
+une seule piste de test par app, mais une seule liste de testeurs à recruter et
+un seul message d'invitation qui pointe vers les 4.
+
+──────────────────────────────────────────────────────────────────
+1. LA PISTE DE TEST
+──────────────────────────────────────────────────────────────────
+Pour chacune des 4 apps, dans Play Console -> Testing -> Closed testing :
+- Créer (ou réutiliser si elle existe déjà) une piste nommée "Closed testing"
+  (nom par défaut de Google, pas besoin d'en inventer un autre).
+- Type de liste de testeurs : "E-mail list" si tu recrutes par adresse email
+  connue (proches/famille) ; ajoute en plus une liste "ouverte" seulement si tu
+  veux aussi passer par un fournisseur de tests payant externe (mentionné dans
+  le questionnaire) - dans ce cas Google fournit un lien d'inscription public,
+  distinct du lien ci-dessous.
+- Uploader le build local actuel de chaque édition (voir commandes EAS dans la
+  réponse du prompt 8, point 3) sur cette piste avant d'inviter qui que ce soit
+  - un testeur ne peut pas s'inscrire tant qu'aucun build n'est publié dessus.
+- Lien d'inscription ("opt-in URL"), une fois la piste créée et un build
+  dessus, format standard Google (à vérifier dans Play Console, il peut différer
+  légèrement) :
+    Africa   : https://play.google.com/apps/testing/com.guigui314.GeoMasterafEdition
+    Americas : https://play.google.com/apps/testing/com.guigui314.GeoMasteramEdition
+    Asia     : https://play.google.com/apps/testing/com.guigui314.GeoMasterasEdition
+    Pacific  : https://play.google.com/apps/testing/com.guigui314.GeoMasterpaEdition
+
+──────────────────────────────────────────────────────────────────
+2. MESSAGE D'INVITATION - FRANÇAIS
+──────────────────────────────────────────────────────────────────
+Objet : Teste mes 4 jeux de géographie Periplo avant leur sortie officielle
+
+Salut,
+
+Je développe Periplo, une famille de jeux de géographie (drapeaux, capitales,
+quiz), et j'ai besoin de 12 testeurs pendant 14 jours pour débloquer la
+publication de 4 éditions régionales sur le Play Store : Afrique, Amériques,
+Asie et Pacifique.
+
+Ça prend 5 minutes : ouvre le(s) lien(s) qui t'intéresse(nt) ci-dessous depuis
+ton téléphone Android, accepte de devenir testeur, installe l'app via le Play
+Store (le lien t'y renvoie), et joue quelques parties dans les 14 prochains
+jours. Tu peux tester une seule édition ou les 4, comme tu veux.
+
+- Afrique   : https://play.google.com/apps/testing/com.guigui314.GeoMasterafEdition
+- Amériques : https://play.google.com/apps/testing/com.guigui314.GeoMasteramEdition
+- Asie      : https://play.google.com/apps/testing/com.guigui314.GeoMasterasEdition
+- Pacifique : https://play.google.com/apps/testing/com.guigui314.GeoMasterpaEdition
+
+N'hésite pas à me dire ce que tu en penses par message direct - bugs, données
+qui te semblent fausses, ce qui te plaît ou pas. Merci du coup de main !
+
+──────────────────────────────────────────────────────────────────
+3. INVITATION MESSAGE - ENGLISH
+──────────────────────────────────────────────────────────────────
+Subject: Test my 4 Periplo geography games before their official launch
+
+Hi,
+
+I'm building Periplo, a family of geography quiz games (flags, capitals,
+maps), and I need 12 testers for 14 days to unlock the Play Store release of
+4 regional editions: Africa, Americas, Asia and Pacific.
+
+It takes 5 minutes: open whichever link(s) below interest you from an Android
+phone, accept becoming a tester, install the app through the Play Store link,
+and play a few rounds over the next 14 days. Test one edition or all 4, your
+choice.
+
+- Africa   : https://play.google.com/apps/testing/com.guigui314.GeoMasterafEdition
+- Americas : https://play.google.com/apps/testing/com.guigui314.GeoMasteramEdition
+- Asia     : https://play.google.com/apps/testing/com.guigui314.GeoMasterasEdition
+- Pacific  : https://play.google.com/apps/testing/com.guigui314.GeoMasterpaEdition
+
+Feel free to message me directly with feedback - bugs, data that looks wrong,
+anything you liked or didn't. Thanks for the help!
+
+──────────────────────────────────────────────────────────────────
+4. CALENDRIER SUR 14 JOURS
+──────────────────────────────────────────────────────────────────
+Le compteur des 14 jours démarre quand tu as au moins 12 testeurs réellement
+opt-in, pas quand tu envoies l'invitation - prévois 2-3 jours de battement
+entre l'envoi et l'inscription effective des 12.
+
+J0  (envoi)     Créer les 4 pistes, uploader les builds, envoyer le message
+                FR/EN (proches, famille) + lancer le fournisseur de tests
+                payant si le réseau perso ne suffit pas pour les 12.
+J1-J2           Relancer par message direct ceux qui n'ont pas encore cliqué
+                le lien d'inscription.
+J3              Vérifier dans Play Console le nombre de testeurs opt-in par
+                app. En dessous de 12 sur une app, élargir le recrutement pour
+                cette app spécifiquement.
+J3 (ou date à   >>> Jour 1 réel du décompte Google : au moins 12 testeurs
+laquelle les    opt-in confirmés sur les 4 apps. Note cette date - c'est elle
+12 sont là)     + 14 jours qui compte pour Google, pas J0.
+J7 (mi-parcours) Vérifier le taux de crash/ANR par app dans Play Console
+                (Quality > Android vitals). Relancer les testeurs silencieux
+                par message direct pour un retour qualitatif (questionnaire
+                Q2/Q3).
+J12             Commencer à rédiger les vraies réponses du questionnaire
+                (Site/PlayStore-Questionnaire-TestFerme.txt) à partir des
+                retours et métriques réellement recueillis - remplacer le
+                brouillon existant, pas le compléter.
+J14+            Une fois 12 testeurs x 14 jours confirmés sur les 4 apps :
+                demander l'accès production dans Play Console, coller les
+                réponses finalisées du questionnaire.
+
+Les 4 pistes tournent en parallèle sur le même calendrier ; si une app peine à
+atteindre 12 testeurs, son J14 personnel glisse d'autant, indépendamment des 3
+autres.

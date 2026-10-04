@@ -53,3 +53,17 @@ export function buildPlayUrl(androidId, campaign) {
   const referrer = `utm_source=periplo_site&utm_medium=share&utm_campaign=${encodeURIComponent(campaign || 'share')}`;
   return `https://play.google.com/store/apps/details?${new URLSearchParams({ id: androidId, referrer }).toString()}`;
 }
+
+// Shared Game Maker quiz (c=quiz&q=<code>): same alphabet as the app's
+// src/services/sharedQuizRules.js. Anything else is ignored.
+export function sanitizeQuizCode(raw) {
+  const c = (raw == null ? '' : String(raw)).toUpperCase();
+  return /^[A-HJKMNP-Z2-9]{6}$/.test(c) ? c : null;
+}
+
+// Android: Chrome opens the app through its custom scheme (editions/<edition>/app.json
+// "scheme") when it's installed, else the fallback (Play).
+export function buildAndroidQuizIntent(edition, code, androidId, fallbackUrl) {
+  return `intent://quiz/${code}#Intent;scheme=periplo-${edition};package=${androidId};` +
+    `S.browser_fallback_url=${encodeURIComponent(fallbackUrl)};end`;
+}

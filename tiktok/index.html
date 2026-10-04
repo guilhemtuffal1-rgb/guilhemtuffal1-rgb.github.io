@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Periplo — Play the quiz</title>
+<meta name="description" content="Pick your Periplo edition: the whole world, Europe or the 50 US states. Free on iPhone and Android.">
+<meta name="robots" content="noindex">
+<!-- TikTok bio link (one link only): each card goes through get/ (store detection + campaign c=tiktok). -->
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: linear-gradient(#006064, #00838f); color: #fff;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 2.5rem 1rem; text-align: center;
+  }
+  main { max-width: 440px; margin: 0 auto; }
+  h1 { margin: 0 0 .3rem; font-size: 1.9rem; font-weight: 900; }
+  p { margin: 0 0 1.8rem; opacity: .85; }
+  a {
+    display: block; padding: 1.2rem 1.1rem; margin-bottom: 1rem; border-radius: 18px;
+    color: #fff; text-decoration: none; border: 2px solid rgba(255,255,255,.25);
+  }
+  a:focus-visible { outline: 3px solid #FFD700; outline-offset: 3px; }
+  a strong { display: block; font-size: 1.3rem; }
+  a span { opacity: .85; font-size: .95rem; }
+  .world { background: linear-gradient(#00acc1, #006064); }
+  .europe { background: linear-gradient(#1A237E, #006064); }
+  .us { background: linear-gradient(#0A3161, #B31942); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Periplo</h1>
+  <p>Free on iPhone &amp; Android</p>
+  <a class="world" href="../get/?e=world&amp;c=tiktok"><strong>Periplo</strong><span>195 countries · flags, capitals, maps</span></a>
+  <a class="europe" href="../get/?e=europe&amp;c=tiktok"><strong>Periplo Europe</strong><span>50 countries · flags, capitals, regions</span></a>
+  <a class="us" href="../get/?e=us&amp;c=tiktok"><strong>Periplo US</strong><span>The 50 states · flags, capitals, map</span></a>
+</main>
+</body>
+</html>

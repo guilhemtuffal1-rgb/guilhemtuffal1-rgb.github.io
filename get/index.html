@@ -33,12 +33,21 @@
   }
   .btn:hover { background: #242833; }
   noscript a { color: #4DB6AC; }
+  .quiz { margin-bottom: 1.75rem; }
+  .quizLabel { opacity: .65; font-size: .85rem; }
+  .quizCode { font-size: 2rem; font-weight: 900; letter-spacing: .3rem; margin: .25rem 0; }
+  .quizHint { opacity: .75; font-size: .9rem; }
 </style>
 </head>
 <body>
   <div class="card">
     <div class="logo">Periplo</div>
     <div class="edition" id="editionLabel">&nbsp;</div>
+    <div class="quiz" id="quizBox" hidden>
+      <div class="quizLabel" id="quizLabel">Quiz code</div>
+      <div class="quizCode" id="quizCode"></div>
+      <div class="quizHint" id="quizHint">No app? Install Periplo, then enter this code in the Game Maker.</div>
+    </div>
     <div id="autoRedirect">
       <div class="spinner" aria-hidden="true"></div>
       <div class="status" id="statusText">Opening the app store…</div>
@@ -54,8 +63,8 @@
   </div>
 
 <script type="module">
-  import { EDITIONS, pickEdition, sanitizeCampaign, detectPlatform, buildAppStoreUrl, buildPlayUrl }
-    from './redirect.mjs';
+  import { EDITIONS, pickEdition, sanitizeCampaign, detectPlatform, buildAppStoreUrl, buildPlayUrl,
+    sanitizeQuizCode, buildAndroidQuizIntent } from './redirect.mjs';
 
   const params = new URLSearchParams(location.search);
   const edition = pickEdition(params.get('e'));
@@ -71,7 +80,20 @@
 
   const platform = detectPlatform(navigator.userAgent, navigator.platform, navigator.maxTouchPoints);
 
-  if (platform === 'ios') {
+  // A shared Game Maker quiz: open it in the app when installed, else the store.
+  // The code stays on screen for anyone who installs first and types it in.
+  // iOS: an installed app opens the link itself (universal link, see
+  // /.well-known/apple-app-site-association), so reaching this page means the store.
+  const quiz = campaign === 'quiz' ? sanitizeQuizCode(params.get('q')) : null;
+  if (quiz) {
+    document.getElementById('quizBox').hidden = false;
+    document.getElementById('quizCode').textContent = quiz;
+  }
+
+  if (quiz && platform === 'android') {
+    document.getElementById('statusText').textContent = 'Opening the quiz in Periplo…';
+    location.replace(buildAndroidQuizIntent(edition, quiz, androidId, playUrl));
+  } else if (platform === 'ios') {
     location.replace(iosUrl);
   } else if (platform === 'android') {
     location.replace(playUrl);
