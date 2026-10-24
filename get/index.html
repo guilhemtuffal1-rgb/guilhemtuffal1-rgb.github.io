@@ -64,7 +64,7 @@
 
 <script type="module">
   import { EDITIONS, pickEdition, sanitizeCampaign, detectPlatform, buildAppStoreUrl, buildPlayUrl,
-    sanitizeQuizCode, buildAndroidQuizIntent } from './redirect.mjs';
+    sanitizeQuizCode, buildAndroidQuizIntent, visitBeacon } from './redirect.mjs';
 
   const params = new URLSearchParams(location.search);
   const edition = pickEdition(params.get('e'));
@@ -79,6 +79,13 @@
   document.getElementById('editionLabel').textContent = edition[0].toUpperCase() + edition.slice(1) + ' edition';
 
   const platform = detectPlatform(navigator.userAgent, navigator.platform, navigator.maxTouchPoints);
+
+  // One anonymous visit per campaign and platform (local tests count apart, in get_dev).
+  try {
+    const { url, body } = visitBeacon(campaign, platform, new Date().toISOString().slice(0, 10),
+      location.hostname.endsWith('github.io') ? 'get' : 'get_dev');
+    navigator.sendBeacon(url, body);
+  } catch (_) {}
 
   // A shared Game Maker quiz: open it in the app when installed, else the store.
   // The code stays on screen for anyone who installs first and types it in.

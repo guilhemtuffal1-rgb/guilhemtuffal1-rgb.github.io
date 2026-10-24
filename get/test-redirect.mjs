@@ -3,7 +3,7 @@ import assert from 'node:assert';
 import {
   EDITIONS, pickEdition, sanitizeCampaign, detectPlatform,
   buildAppStoreUrl, buildPlayUrl, APPLE_PROVIDER_TOKEN,
-  sanitizeQuizCode, buildAndroidQuizIntent,
+  sanitizeQuizCode, buildAndroidQuizIntent, visitBeacon,
 } from './redirect.mjs';
 
 // pickEdition falls back to world for unknown/missing codes
@@ -31,11 +31,27 @@ assert.ok(playUrl.startsWith('https://play.google.com/store/apps/details?'));
 assert.ok(playUrl.includes('id=com.guigui314.GeoMaster&'));
 assert.ok(decodeURIComponent(playUrl).includes('utm_source=periplo_site&utm_medium=share&utm_campaign=daily'));
 
-// buildAppStoreUrl omits pt/ct while the provider token placeholder is unset
-assert.ok(APPLE_PROVIDER_TOKEN.startsWith('REPLACE_'), 'update this test once a real token is set');
-const iosUrl = buildAppStoreUrl(EDITIONS.world.iosId, 'daily');
-assert.strictEqual(iosUrl, 'https://apps.apple.com/app/id6764830622?mt=8');
-assert.ok(!iosUrl.includes('pt=') && !iosUrl.includes('ct='));
+// The TikTok bio link get/?c=tiktok: c lands in utm_campaign (Play) and in ct (Apple, once pt is set)
+const tiktok = sanitizeCampaign('tiktok');
+assert.strictEqual(new URLSearchParams(new URL(buildPlayUrl(EDITIONS.world.androidId, tiktok)).searchParams.get('referrer')).get('utm_campaign'), 'tiktok');
+const iosUrl = new URL(buildAppStoreUrl(EDITIONS.world.iosId, tiktok));
+assert.strictEqual(iosUrl.pathname, '/app/id6764830622');
+if (APPLE_PROVIDER_TOKEN.startsWith('REPLACE_')) {
+  // placeholder: pt/ct are left out rather than sent broken
+  assert.strictEqual(iosUrl.search, '?mt=8');
+} else {
+  assert.match(APPLE_PROVIDER_TOKEN, /^\d+$/, 'the provider token is the digits of pt=');
+  assert.strictEqual(iosUrl.searchParams.get('pt'), APPLE_PROVIDER_TOKEN);
+  assert.strictEqual(iosUrl.searchParams.get('ct'), 'tiktok');
+  assert.strictEqual(iosUrl.searchParams.get('mt'), '8');
+}
+
+// Visit counter: fixed depth, the analytics rule's leaf, one bounded increment, a safe key
+const beacon = visitBeacon('tiktok', 'ios', '2026-10-24');
+assert.strictEqual(beacon.url, 'https://geomaster-43940-default-rtdb.firebaseio.com/analytics/get/2026-10-24/visit.json?x-http-method-override=PATCH');
+assert.deepStrictEqual(JSON.parse(beacon.body), { 'tiktok:ios/n': { '.sv': { increment: 1 } } });
+assert.deepStrictEqual(Object.keys(JSON.parse(visitBeacon('a/b.c$', 'android', '2026-10-24').body)), ['share:android/n']);
+assert.ok(visitBeacon('quiz', 'desktop', '2026-10-24', 'get_dev').url.includes('/analytics/get_dev/2026-10-24/visit.json'));
 
 // Shared quiz codes: the app's alphabet only, case-insensitive
 assert.strictEqual(sanitizeQuizCode('ab3k7m'), 'AB3K7M');

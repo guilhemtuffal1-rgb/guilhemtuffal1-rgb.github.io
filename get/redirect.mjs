@@ -15,8 +15,8 @@ export const EDITIONS = {
 export const DEFAULT_EDITION = 'world';
 
 // App Store Connect → App Analytics → Campaigns → your provider token.
-// Leave the placeholder as-is until you have one: pt/ct are simply omitted.
-export const APPLE_PROVIDER_TOKEN = 'REPLACE_WITH_YOUR_APPLE_PROVIDER_TOKEN';
+// Same token for every app of the account (given 2026-10-24).
+export const APPLE_PROVIDER_TOKEN = '128841264';
 
 export function pickEdition(code) {
   return Object.prototype.hasOwnProperty.call(EDITIONS, code) ? code : DEFAULT_EDITION;
@@ -63,6 +63,20 @@ export function sanitizeQuizCode(raw) {
 
 // Android: Chrome opens the app through its custom scheme (editions/<edition>/app.json
 // "scheme") when it's installed, else the fallback (Play).
+// Anonymous visit counter (prompt 9 of PROMPTS_PERIPLO_2026-10): one bounded
+// increment on the RTDB analytics tree the app already writes (Periplo/src/services/track.js),
+// /analytics/get/{YYYY-MM-DD UTC}/visit/{campaign}:{platform}/n. No id, no IP, no
+// timestamp per visitor; the existing analytics rule already accepts it, without sign-in.
+// POST + x-http-method-override keeps it a simple CORS request, so navigator.sendBeacon
+// can send it and it survives the store redirect that follows.
+export const DB_URL = 'https://geomaster-43940-default-rtdb.firebaseio.com';
+export function visitBeacon(campaign, platform, day, bucket = 'get') {
+  return {
+    url: `${DB_URL}/analytics/${bucket}/${day}/visit.json?x-http-method-override=PATCH`,
+    body: JSON.stringify({ [`${sanitizeCampaign(campaign)}:${platform}/n`]: { '.sv': { increment: 1 } } }),
+  };
+}
+
 export function buildAndroidQuizIntent(edition, code, androidId, fallbackUrl) {
   return `intent://quiz/${code}#Intent;scheme=periplo-${edition};package=${androidId};` +
     `S.browser_fallback_url=${encodeURIComponent(fallbackUrl)};end`;
